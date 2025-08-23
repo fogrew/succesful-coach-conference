@@ -40,6 +40,7 @@
 .program__avatar {
   grid-row: 1 / span 2;
   grid-column: 1;
+  align-self: center;
   width: 32px;
   height: 32px;
   border-radius: 50% !important;
