@@ -41,7 +41,7 @@
   width: 260px;
   height: 260px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 10px;
   margin-bottom: 1.2rem;
   box-shadow: 0 2px 16px 0 rgb(0 0 0 / 0.08);
   background: #ffffff;
@@ -52,11 +52,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  object-position: top center;
+  border-radius: 10px;
   transition: transform 0.2s ease-out;
 }
 
-.speakers__avatar:hover .speakers__img {
+.speakers__item:hover .speakers__img {
   transform: scale(1.05);
 }
 
