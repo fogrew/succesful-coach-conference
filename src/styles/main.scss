@@ -7,6 +7,7 @@
   --color-accent: #ff914c;
   --color-accent-secondary: #f98a77;
   --color-dark: #2c3e50;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -28,7 +29,6 @@ img {
   color: var(--color-dark);
   line-height: 1.6;
   background: var(--color-bg-main);
-  scroll-behavior: smooth;
 }
 
 .container {
