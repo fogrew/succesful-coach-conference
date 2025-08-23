@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang='ru'>
+  <head>
+    <meta charset='UTF-8'>
+    <title>
+      {% if title %}
+        {{ title -}}
+      {%- else -%}
+        Coach Conference
+      {% endif %}
+    </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='/src/styles/main.scss'>
+  </head>
+  <body class='page'>
+    {% block header %}
+      {% include '../components/sections/header.twig' %}
+    {% endblock %}
+    {% block content %}{% endblock %}
+    {% block footer %}
+      {% include '../components/sections/footer.twig' %}
+    {% endblock %}
+    <script src='/src/scripts/script.js' type='module'></script>
+  </body>
+</html>

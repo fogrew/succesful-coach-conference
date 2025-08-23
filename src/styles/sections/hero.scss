@@ -1,0 +1,21 @@
+.hero {
+  background:
+    linear-gradient(
+      90deg,
+      rgb(255 145 76 / 0.85) 0%,
+      rgb(249 138 119 / 0.85) 75%,
+      rgb(249 138 119 / 0.85) 100%
+    ),
+    url("img/intro-bg.jpg") center/cover no-repeat;
+  text-align: center;
+  padding: 100px 0;
+  color: #ffffff;
+}
+
+.hero__title,
+.hero__desc {
+  color: #ffffff;
+  text-shadow:
+    0 2px 12px rgb(44 62 80 / 0.25),
+    0 1px 2px rgb(0 0 0 / 0.18);
+}

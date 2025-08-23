@@ -1,0 +1,46 @@
+{% set organizer = index.speakers["ekaterina-chelina"] %}
+<section class='about section' id='about'>
+  <div class='container'>
+    <h2 class='heading-2'>О конференции</h2>
+    <p class='about__desc'>
+      Ежегодная всероссийская конференция репетиторов — это уникальная площадка для профессионального роста, обмена
+      опытом и нетворкинга. В программе: продвижение через Telegram и Авито, построение личного бренда, тренды
+      ВКонтакте, эффективная работа с группами, психологический тренинг, а также разбор налоговых вопросов для
+      репетиторов. Вас ждут практические кейсы, живое общение и новые инструменты для развития вашего дела!
+    </p>
+    <div class='about__organizer'>
+      <img
+        src='{{ organizer.photo }}'
+        alt='{{ organizer.name }}'
+        class='about__organizer-photo'
+      >
+      <div class='about__organizer-info'>
+        <h3 class='about__organizer-name'>
+          <b>{{ organizer.name }}</b>
+        </h3>
+        <p class='about__organizer-title'>Организатор конференции</p>
+        <ul class='about__organizer-list'>
+          <li class='about__organizer-list-item'>
+            Опытный репетитор, 16 лет помогает ученикам достигать высоких результатов, 6 лет преподаёт онлайн.
+          </li>
+          <li class='about__organizer-list-item'>
+            Автор курса
+            <a href='https://vk.com/market/product/kurs-quotucheniki-iz-vkquot-zapis-213646353-10865600'
+              >Ученики из ВК</a
+            >, автор мастер-классов
+            <a href='https://vk.com/market/product/fishki-vk-10-master-klass-213646353-10464800'>Фишки ВК</a>
+            и
+            <a href='https://vk.com/market/product/kak-sobirat-otzyvy-chtoby-ikh-davali-zapis-master-klassa-213646353-10459338'
+              >вебинара об отзывах</a
+            >.
+          </li>
+          <li class='about__organizer-list-item'>Основатель сообщества "Успешный репетитор".</li>
+        </ul>
+        <p class='about__organizer-quote'>
+          Благодаря её вниманию к деталям и заботе о каждом участнике, конференция стала местом силы для репетиторов со
+          всей страны.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

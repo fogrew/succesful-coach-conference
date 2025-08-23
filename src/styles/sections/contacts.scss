@@ -1,0 +1,64 @@
+.contacts {
+  text-align: center;
+  background: #ffffff;
+}
+
+.contacts__desc {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.contacts__list {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Стили для карты в контактах */
+.contacts__map-wrapper {
+  position: relative;
+  width: 100%;
+  left: 50%;
+  right: 50%;
+  margin-left: -50%;
+  margin-right: -50%;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.contacts__address-on-map {
+  position: absolute;
+  top: 40px;
+  left: 8vw;
+  background: rgb(255 255 255 / 0.95);
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 0.08);
+  font-size: 1.1em;
+  max-width: 340px;
+  z-index: 2;
+  text-align: left;
+}
+
+.contacts__address-on-map .heading-3 {
+  text-align: center;
+}
+
+@media (width <= 900px) {
+  .contacts__address-on-map {
+    left: 4vw;
+    top: 12px;
+    padding: 8px 12px;
+    font-size: 1em;
+    max-width: 90vw;
+  }
+}
+
+@media (width <= 600px) {
+  .contacts__address-on-map {
+    left: 2vw;
+    top: 6px;
+    padding: 6px;
+    font-size: 0.98em;
+    max-width: 98vw;
+  }
+}

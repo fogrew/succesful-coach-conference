@@ -1,0 +1,134 @@
+.last-year__gallery {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.last-year__gallery-slider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 24px;
+  position: relative;
+}
+
+.last-year__gallery-arrow {
+  background: var(--color-bg-main);
+  border: none;
+  font-size: 2.2em;
+  color: var(--color-accent);
+  cursor: pointer;
+  padding: 0 18px;
+  height: 220px;
+  transition: background 0.2s;
+  border-radius: 12px;
+  z-index: 2;
+  margin: 0 12px;
+}
+
+.last-year__gallery-arrow:active {
+  background: var(--color-accent-secondary);
+  color: #ffffff;
+}
+
+.last-year__gallery-track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+  padding: 8px 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-bg-main);
+}
+
+.last-year__gallery-track::-webkit-scrollbar {
+  height: 10px;
+  background: var(--color-bg-main);
+  border-radius: 8px;
+}
+
+.last-year__gallery-track::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    var(--color-accent-secondary) 100%
+  );
+  border-radius: 8px;
+}
+
+.last-year__gallery-track::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-secondary);
+}
+
+.last-year__gallery-img {
+  width: 420px;
+  height: 220px;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: none;
+}
+
+.last-year__reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.last-year__review {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.last-year__review-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.last-year__review-content {
+  flex: 1;
+}
+
+.last-year__review-text {
+  margin: 0 0 8px;
+}
+
+.last-year__review-author {
+  color: #888888;
+  font-size: 0.95em;
+}
+
+/* Видео секция */
+.last-year__video-block {
+  margin-top: 36px;
+  text-align: center;
+}
+
+.last-year__video-title {
+  margin-bottom: 18px;
+  font-size: 1.3em;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.last-year__video-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.last-year__video {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgb(44 62 80 / 0.1);
+}

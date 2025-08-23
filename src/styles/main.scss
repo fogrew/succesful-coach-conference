@@ -1,0 +1,50 @@
+@import "./components/+.css";
+@import "./sections/+.css";
+
+:root {
+  --color-bg-main: #f1eae4;
+  --color-bg-secondary: #c3bfbc;
+  --color-accent: #ff914c;
+  --color-accent-secondary: #f98a77;
+  --color-dark: #2c3e50;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.page {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica",
+    "Arial", sans-serif;
+  margin: 0;
+  color: var(--color-dark);
+  line-height: 1.6;
+  background: var(--color-bg-main);
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: min(100%, 1200px);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.heading-1,
+.heading-2 {
+  font-weight: 600;
+}
+
+.heading-2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+}

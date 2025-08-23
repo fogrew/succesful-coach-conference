@@ -1,0 +1,57 @@
+{
+  "name": "succesful-coach-conference",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "npx forever --no-daemon --plain -c \"npm run dev\" .",
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "stylelint": "npx stylelint **/*.scss",
+    "stylelint:fix": "npx stylelint **/*.scss --fix",
+    "format": "prettier --write \"**/*.{js,json,twig,njk,scss,css,html}\"",
+    "format:check": "prettier --check \"**/*.{js,json,twig,njk,scss,css,html}\"",
+    "format:lint": "npm run format && npm run lint:fix",
+    "prettier": "prettier --write -u 'src/**/*.{njk,twig,js,ts,css,json}'",
+    "prepare": "husky"
+  },
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "devDependencies": {
+    "@destination/prettier-plugin-twig": "^1.5.0",
+    "@html-eslint/eslint-plugin": "^0.45.0",
+    "@html-eslint/parser": "^0.40.0",
+    "@vituum/vite-plugin-nunjucks": "^1.1.0",
+    "@vituum/vite-plugin-postcss": "^1.1.0",
+    "@vituum/vite-plugin-twig": "^1.1.0",
+    "eslint": "^9.26.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.0.0",
+    "prettier": "3.5.3",
+    "sass-embedded": "^1.88.0",
+    "stylelint": "^16.19.1",
+    "stylelint-config-standard-scss": "^15.0.0",
+    "stylelint-prettier": "^5.0.3",
+    "vite": "^6.3.5",
+    "vituum": "^1.2.0"
+  },
+  "lint-staged": {
+    "*.{njk,twig,js,ts}": [
+      "eslint --fix",
+      "prettier --write -u"
+    ],
+    "*.scss": [
+      "prettier --write -u",
+      "stylelint --fix"
+    ],
+    "src/data/*.json": [
+      "prettier --write -u"
+    ]
+  },
+  "volta": {
+    "node": "22.14.0"
+  }
+}

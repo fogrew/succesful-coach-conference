@@ -1,0 +1,22 @@
+.header {
+  background: var(--color-bg-main);
+  padding: 15px 0;
+  border-bottom: 1px solid #eeeeee;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header__logo {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-decoration: none;
+}

@@ -1,0 +1,11 @@
+{% macro nav(list) %}
+<nav>
+  <ul class='nav__list'>
+    {% for item in list %}
+      <li class='nav__item'>
+        <a href='{{ item.link }}' class='nav__link'>{{ item.text }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+{% endmacro %}

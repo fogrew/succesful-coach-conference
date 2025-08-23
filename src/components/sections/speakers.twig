@@ -1,0 +1,20 @@
+<section class='speakers section' id='speakers'>
+  <div class='speakers__container container'>
+    <h2 class='speakers__title heading-2'>Спикеры</h2>
+    <div class='speakers__list'>
+      {% for speaker in index.speakers %}
+        <div class='speakers__item'>
+          <picture class='speakers__avatar'>
+            <img
+              src='{{ speaker.photo }}'
+              alt='{{ speaker.name }}'
+              class='speakers__img'
+            >
+          </picture>
+          <h3 class='speakers__name'>{{ speaker.name }}</h3>
+          <p class='speakers__desc'>{{ speaker.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

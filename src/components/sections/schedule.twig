@@ -1,0 +1,28 @@
+<section class='program section' id='program'>
+  <div class='program__container'>
+    <h2 class='heading-2'>Программа</h2>
+    <ul class='program__day-list'>
+      {% for item in index.schedule %}
+        {% set isAbleAsSpeaker = item.speaker and index.speakers[item.speaker] %}
+        <li>
+          <span class='program__time'>{{ item.time }}</span>
+          <span class='program__slot'>
+            {% if isAbleAsSpeaker %}
+              <img
+                src='{{ index.speakers[item.speaker].photo }}'
+                alt='Артем Лысов'
+                class='program__avatar'
+              >
+            {% endif %}
+            <span class='program__slot-content'>
+              {% if isAbleAsSpeaker %}
+                <span class='program__speaker'>{{ index.speakers[item.speaker].name }}</span>
+              {% endif %}
+              <span class='program__desc'>{{ item.event }}</span>
+            </span>
+          </span>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

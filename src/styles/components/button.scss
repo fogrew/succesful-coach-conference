@@ -1,0 +1,141 @@
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 12px 28px;
+  text-decoration: none;
+  font-weight: 600;
+  text-shadow:
+    0 2px 12px rgb(44 62 80 / 0.18),
+    0 1px 2px rgb(0 0 0 / 0.12);
+  border-radius: 5px;
+  overflow: hidden;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 5px;
+    background: var(--button-background-color, transparent);
+    border-width: 3px;
+    border-style: solid;
+    border-image: var(--button-border-color, transparent) 1;
+  }
+
+  &::before {
+    z-index: 1;
+  }
+
+  &::after {
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  .button__text {
+    position: relative;
+    z-index: 3;
+    display: inline-block;
+    color: var(--button-color, transparent);
+  }
+}
+
+.button--primary:not(.button--invert) {
+  --button-color: #ffffff;
+  --button-background-color: linear-gradient(
+    90deg,
+    var(--color-accent) 0%,
+    var(--color-accent-secondary) 75%,
+    var(--color-accent-secondary) 100%
+  );
+  --button-border-color: linear-gradient(
+    -90deg,
+    var(--color-accent) 0%,
+    var(--color-accent-secondary) 75%,
+    var(--color-accent-secondary) 100%
+  );
+
+  &:hover {
+    --button-background-color: linear-gradient(
+      -90deg,
+      var(--color-accent) 0%,
+      var(--color-accent-secondary) 75%,
+      var(--color-accent-secondary) 100%
+    );
+  }
+}
+
+.button--primary.button--invert {
+  --button-color: var(--color-accent);
+  --button-background-color: transparent;
+  --button-border-color: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    var(--color-bg-main) 75%,
+    var(--color-bg-main) 100%
+  );
+
+  &:hover {
+    --button-background-color: rgb(255 145 76 / 0.12);
+    --button-border-color: linear-gradient(
+      -90deg,
+      #ffffff 0%,
+      var(--color-bg-main) 75%,
+      var(--color-bg-main) 100%
+    );
+
+    /* --button-border-color: linear-gradient(
+      -90deg,
+      #fff 0%,
+      var(--color-bg-main) 75%,
+      var(--color-bg-main) 100%
+    ); */
+  }
+
+  .button__text {
+    color: #ffffff;
+  }
+}
+
+.button--secondary {
+  background: rgb(255 255 255 / 0.18);
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+  text-shadow: none;
+  font-weight: 600;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+
+  &:hover {
+    background: rgb(255 145 76 / 0.12);
+    color: #ffffff;
+    border-color: var(--color-accent-secondary);
+  }
+}
+
+.button--tertiary {
+  background: transparent;
+  color: var(--color-dark);
+  border: 2px solid #dddddd;
+  margin-left: 12px;
+  font-weight: 500;
+  text-shadow: none;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+
+  &:hover {
+    background: rgb(255 145 76 / 0.08);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+}

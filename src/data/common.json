@@ -1,0 +1,27 @@
+{
+  "common": {
+    "siteTitle": "Starter",
+    "nav": [
+      {
+        "text": "О конференции",
+        "link": "#about"
+      },
+      {
+        "text": "Спикеры",
+        "link": "#speakers"
+      },
+      {
+        "text": "Программа",
+        "link": "#program"
+      },
+      {
+        "text": "Билеты",
+        "link": "#pricing"
+      },
+      {
+        "text": "Контакты",
+        "link": "#contacts"
+      }
+    ]
+  }
+}
