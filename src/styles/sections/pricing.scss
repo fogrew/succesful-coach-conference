@@ -34,3 +34,15 @@
   margin: 0;
   padding: 0 0 0 20px;
 }
+
+.dynamic-pricing__qr {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .dynamic-pricing__qr {
+    display: none;
+  }
+}
