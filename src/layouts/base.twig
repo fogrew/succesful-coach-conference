@@ -2,15 +2,26 @@
 <html lang='ru'>
   <head>
     <meta charset='UTF-8'>
-    <title>
-      {% if title %}
-        {{ title -}}
-      {%- else -%}
-        Coach Conference
-      {% endif %}
-    </title>
+    <title>Ежегодная всероссийская конференция репетиторов</title>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='/src/styles/main.scss'>
+    {# <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ежегодная всероссийская конференция репетиторов" />
+    <meta property="og:description" content="PROдвижение репетитора: от личного бренда до налогов" />
+    <meta property="og:url" content="https://imgsrc.io/guides/open-graph-meta-tags" />
+
+    <meta property="og:image" content="https://imgsrc.io/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ежегодная всероссийская конференция репетиторов" />
+    <meta name="twitter:description" content="PROдвижение репетитора: от личного бренда до налогов" />
+    <meta name="twitter:image" content="https://imgsrc.io/og.png" />
+    <meta name="twitter:image:width" content="1200" />
+    <meta name="twitter:image:height" content="630" /> #}
   </head>
   <body class='page'>
     {% block header %}
