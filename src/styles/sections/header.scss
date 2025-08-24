@@ -24,3 +24,9 @@
   margin-left: auto;
   padding: 10px 0;
 }
+
+@media (width <= 450px) {
+  .header__nav {
+    display: none;
+  }
+}
