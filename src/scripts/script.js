@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const descElem = document.getElementById('dynamic-price-desc');
   if (priceElem && descElem) {
     const now = new Date();
-    const sept1 = new Date(now.getFullYear(), 8, 1); // 1 сентября
-    const oct1 = new Date(now.getFullYear(), 9, 1); // 1 октября
-    const oct5 = new Date(now.getFullYear(), 9, 5, 23, 59, 59); // 5 октября
+    const sept1 = new Date(2025, 8, 1, 23, 59, 59); // 1 сентября
+    const oct1 = new Date(2025, 9, 1, 23, 59, 59); // 1 октября
+    const oct5 = new Date(2025, 9, 5, 23, 59, 59); // 5 октября
 
     let price = '';
     let desc = '';
