@@ -10,7 +10,7 @@
             {% if isAbleAsSpeaker %}
               <img
                 src='{{ index.speakers[item.speaker].photo }}'
-                alt='Артем Лысов'
+                alt='{{ index.speakers[item.speaker].name }}'
                 class='program__avatar'
               >
             {% endif %}
