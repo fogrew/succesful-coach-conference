@@ -15,9 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
     } else if (now < oct1) {
       price = '4990 ₽';
       desc = 'Цена действует до 1 октября';
+      document.getElementById('sept10')?.remove();
     } else if (now <= oct5) {
       price = '5990 ₽';
       desc = 'Цена действует до 5 октября';
+      document.getElementById('oct1')?.remove();
     } else {
       price = 'Продажа завершена';
       desc = '';
