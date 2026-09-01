@@ -8,34 +8,73 @@
     0 2px 12px rgb(44 62 80 / 0.18),
     0 1px 2px rgb(0 0 0 / 0.12);
   border-radius: 5px;
-  overflow: hidden;
 
+  /* Elevation: the button lifts off the page on hover and settles back down
+     on press. */
+  --button-elevation: 0 2px 6px rgb(44 62 80 / 0.15);
+  --button-elevation-hover: 0 8px 16px rgb(44 62 80 / 0.2), 0 3px 6px rgb(44 62 80 / 0.15);
+  --button-elevation-active: 0 4px 8px rgb(44 62 80 / 0.18);
+
+  box-shadow: var(--button-elevation);
+  transform: translateY(0);
+  transition:
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease;
+
+  /* Every variant's fill is a fully opaque image now (a flat color has to be
+     wrapped as a same-color gradient to count as one - see the variants
+     below). That's what makes the trick below reliable: border-image and
+     mask both rasterize a separate layer that doesn't always track the
+     button's sub-pixel position while it's being transformed on hover,
+     which showed up as an intermittent 1px gap/seam in the border. A plain
+     opaque background, in two clipped layers, is just paint - no separate
+     rasterization step to fall out of sync. */
   &::before,
   &::after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 5px;
-    background: var(--button-background-color, transparent);
-    border-width: 3px;
-    border-style: solid;
-    border-image: var(--button-border-color, transparent) 1;
+    border: 3px solid transparent;
+    pointer-events: none;
   }
 
+  /* Rest look - always fully visible. */
   &::before {
     z-index: 1;
+    background:
+      var(--button-background-color, transparent) padding-box,
+      var(--button-border-color, transparent) border-box;
   }
 
+  /* Hover look - fades in over ::before via opacity, so the crossfade needs
+     its own (different) color variables rather than reusing the rest ones. */
   &::after {
     z-index: 2;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
+    background:
+      var(--button-background-color-hover, var(--button-background-color, transparent)) padding-box,
+      var(--button-border-color-hover, var(--button-border-color, transparent)) border-box;
   }
 
   &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--button-elevation-hover);
+
     &::after {
       opacity: 1;
     }
+
+    .button__text {
+      color: var(--button-color-hover, var(--button-color, transparent));
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: var(--button-elevation-active);
+    transition-duration: 0.1s;
   }
 
   .button__text {
@@ -43,13 +82,26 @@
     z-index: 3;
     display: inline-block;
     color: var(--button-color, transparent);
+    transition: color 0.3s ease;
   }
 }
 
 .button--primary:not(.button--invert) {
+  /* Warm orange glow for the flagship CTA - stays in the accent scheme
+     instead of a generic gray elevation shadow. */
+  --button-elevation: 0 4px 12px rgb(255 145 76 / 0.35);
+  --button-elevation-hover: 0 10px 20px rgb(255 145 76 / 0.45), 0 3px 8px rgb(249 138 119 / 0.35);
+  --button-elevation-active: 0 5px 14px rgb(255 145 76 / 0.4);
+
   --button-color: #ffffff;
   --button-background-color: linear-gradient(
     90deg,
+    var(--color-accent) 0%,
+    var(--color-accent-secondary) 75%,
+    var(--color-accent-secondary) 100%
+  );
+  --button-background-color-hover: linear-gradient(
+    -90deg,
     var(--color-accent) 0%,
     var(--color-accent-secondary) 75%,
     var(--color-accent-secondary) 100%
@@ -60,50 +112,54 @@
     var(--color-accent-secondary) 75%,
     var(--color-accent-secondary) 100%
   );
-
-  &:hover {
-    --button-background-color: linear-gradient(
-      -90deg,
-      var(--color-accent) 0%,
-      var(--color-accent-secondary) 75%,
-      var(--color-accent-secondary) 100%
-    );
-  }
 }
 
 .button--primary.button--invert {
-  --button-color: var(--color-accent);
-  --button-background-color: transparent;
+  /* The base .button text-shadow is tuned for white text sitting directly
+     on a photo - now that this variant has its own opaque fill (dark text
+     on cream at rest, white on solid orange on hover), that drop shadow has
+     nothing to help with and just reads as a smudge. */
+  text-shadow: none;
+
+  /* A soft dark shadow separates the (now opaque, light) button from the
+     busy photo behind it; a hint of the accent glow joins in on hover to
+     match the other buttons. */
+  --button-elevation: 0 2px 8px rgb(0 0 0 / 0.2);
+  --button-elevation-hover: 0 9px 18px rgb(0 0 0 / 0.3), 0 3px 8px rgb(255 145 76 / 0.3);
+  --button-elevation-active: 0 4px 10px rgb(0 0 0 / 0.25);
+
+  /* Traded the see-through "ghost button" look for a fully opaque fill -
+     see the comment on the base .button rule for why. Cream at rest reads
+     as a light pill against the photo; it lights up to the same accent
+     gradient as the main CTA on hover, with the text flipping from dark to
+     white to match. */
+  --button-color: var(--color-dark);
+  --button-color-hover: #ffffff;
+  --button-background-color: linear-gradient(var(--color-bg-main), var(--color-bg-main));
+  --button-background-color-hover: linear-gradient(
+    -90deg,
+    var(--color-accent) 0%,
+    var(--color-accent-secondary) 100%
+  );
   --button-border-color: linear-gradient(
     90deg,
     #ffffff 0%,
     var(--color-bg-main) 75%,
     var(--color-bg-main) 100%
   );
-
-  &:hover {
-    --button-background-color: rgb(255 145 76 / 0.12);
-    --button-border-color: linear-gradient(
-      -90deg,
-      #ffffff 0%,
-      var(--color-bg-main) 75%,
-      var(--color-bg-main) 100%
-    );
-
-    /* --button-border-color: linear-gradient(
-      -90deg,
-      #fff 0%,
-      var(--color-bg-main) 75%,
-      var(--color-bg-main) 100%
-    ); */
-  }
-
-  .button__text {
-    color: #ffffff;
-  }
+  --button-border-color-hover: linear-gradient(
+    -90deg,
+    #ffffff 0%,
+    var(--color-bg-main) 75%,
+    var(--color-bg-main) 100%
+  );
 }
 
 .button--secondary {
+  --button-elevation: 0 2px 8px rgb(255 145 76 / 0.18);
+  --button-elevation-hover: 0 8px 16px rgb(255 145 76 / 0.3);
+  --button-elevation-active: 0 4px 10px rgb(255 145 76 / 0.25);
+
   background: rgb(255 255 255 / 0.18);
   color: var(--color-accent);
   border: 2px solid var(--color-accent);
@@ -112,7 +168,9 @@
   transition:
     background 0.2s,
     color 0.2s,
-    border-color 0.2s;
+    border-color 0.2s,
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease;
 
   &:hover {
     background: rgb(255 145 76 / 0.12);
@@ -122,6 +180,10 @@
 }
 
 .button--tertiary {
+  --button-elevation: 0 1px 4px rgb(0 0 0 / 0.08);
+  --button-elevation-hover: 0 7px 14px rgb(0 0 0 / 0.14);
+  --button-elevation-active: 0 3px 8px rgb(0 0 0 / 0.1);
+
   background: transparent;
   color: var(--color-dark);
   border: 2px solid #dddddd;
@@ -131,7 +193,9 @@
   transition:
     background 0.2s,
     color 0.2s,
-    border-color 0.2s;
+    border-color 0.2s,
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease;
 
   &:hover {
     background: rgb(255 145 76 / 0.08);
