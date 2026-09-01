@@ -1,9 +1,5 @@
-.speakers {
-  padding: 40px 0;
-}
-
 .speakers__container {
-  margin: 0 auto;
+  margin: 56px auto 0;
 }
 
 .speakers__title {
@@ -14,37 +10,57 @@
 
 .speakers__list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3.5rem 2.5rem;
-  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
   margin-top: 2.5rem;
   width: 100%;
   box-sizing: border-box;
 }
 
+/* Photo-left, text-right cards fill the column width instead of leaving a
+   narrow centered stack surrounded by empty space. */
 .speakers__item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.5rem;
   background: none;
   box-shadow: none;
   border: none;
   padding: 0;
-  width: auto;
+  width: 100%;
   max-width: 100%;
   min-width: 0;
 }
 
+.speakers__info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+// Purely a scope for the FLIP dialog JS attaches to (one gallery, one photo,
+// one dialog, no shared nav) - display: contents keeps it out of the
+// .speakers__item flex layout entirely, so the avatar button and the item's
+// text stay direct-sibling flex items exactly as before.
+.speakers__avatar-slot {
+  display: contents;
+}
+
 .speakers__avatar {
-  width: 260px;
-  height: 260px;
-  object-fit: cover;
+  display: block;
+  width: 180px;
+  height: 220px;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
   border-radius: 10px;
-  margin-bottom: 1.2rem;
   box-shadow: 0 2px 16px 0 rgb(0 0 0 / 0.08);
   background: #ffffff;
   overflow: hidden;
+}
+
+button.speakers__avatar {
+  cursor: pointer;
 }
 
 .speakers__img {
@@ -60,29 +76,28 @@
   transform: scale(1.05);
 }
 
-@media (width <= 700px) {
-  .speakers__list {
-    grid-template-columns: 1fr;
-    gap: 2rem 1rem;
-    width: 100%;
-  }
-
-  .speakers__item {
-    width: 100%;
-    max-width: 320px;
-  }
-
-  .speakers__avatar {
-    width: 180px;
-    height: 180px;
-  }
-}
-
 .speakers__name {
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0 0 0.5rem;
-  text-align: center;
+  text-align: left;
+}
+
+.speakers__role {
+  font-size: 0.9rem;
+  color: #666666;
+  text-align: left;
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.speakers__mk-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  text-align: left;
+  margin: 0 0 6px;
+  line-height: 1.3;
 }
 
 .speakers__desc {
@@ -92,11 +107,89 @@
   margin: 0;
   line-height: 1.5;
   width: 100%;
-  max-width: 320px;
 }
 
-@media (width <= 1100px) {
+.speakers__outcome {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  text-align: left;
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  background: #fff4ea;
+  border-left: 3px solid var(--color-accent);
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
+/* Tablet: the 2-column grid stays, but a row card gets too cramped at this
+   width - stack photo above text like on mobile, just a bit bigger. */
+@media (700px < width <= 1024px) {
+  .speakers__item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .speakers__avatar {
+    width: 220px;
+    height: 270px;
+  }
+
+  .speakers__name,
+  .speakers__role,
+  .speakers__mk-title,
+  .speakers__desc,
+  .speakers__outcome {
+    text-align: center;
+  }
+}
+
+@media (width <= 700px) {
   .speakers__list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .speakers__item {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Scale with the viewport instead of a flat 180px - that left visible
+     empty margins on anything wider than a small phone. Capped so it
+     doesn't get comically large on bigger phones/small tablets. */
+  // Scale with the viewport instead of a flat 180px, and let the box follow
+  // each photo's own proportions (object-fit: contain below) instead of
+  // force-cropping into a fixed portrait frame - fine on desktop, where
+  // every card needs to line up between columns, but not needed here since
+  // mobile is a single column with no alignment to keep.
+  .speakers__avatar {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .speakers__img {
+    height: auto;
+    object-fit: contain;
+  }
+
+  .speakers__name,
+  .speakers__role,
+  .speakers__mk-title,
+  .speakers__desc,
+  .speakers__outcome {
+    text-align: center;
+  }
+
+  .speakers__role,
+  .speakers__mk-title,
+  .speakers__desc,
+  .speakers__outcome {
+    max-width: 490px;
+    margin-inline: auto;
   }
 }

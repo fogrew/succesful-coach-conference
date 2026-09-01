@@ -1,0 +1,120 @@
+.team {
+  background: #ffffff;
+}
+
+.team__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.team__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+// Purely a scope for the FLIP dialog JS attaches to (one gallery, one photo,
+// one dialog, no shared nav) - display: contents keeps it out of the
+// .team__item flex layout entirely, so the avatar button and the item's text
+// stay direct-sibling flex items exactly as before.
+.team__avatar-slot {
+  display: contents;
+}
+
+/* Average width/height ratio across the actual team photos (0.75, 0.665,
+   0.75, 0.666, 0.666 -> ~0.6996) - close enough to each photo's own ratio
+   that object-fit: cover barely has to crop anything, unlike a circle. */
+.team__avatar {
+  display: block;
+  width: 160px;
+  aspect-ratio: 7 / 10;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 0.1);
+  background: #ffffff;
+}
+
+button.team__avatar {
+  cursor: pointer;
+}
+
+.team__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.team__avatar--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #cccccc;
+  color: #cccccc;
+  font-size: 2rem;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.team__name {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.team__role {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666666;
+  line-height: 1.4;
+}
+
+.team__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.team__link-icon {
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+.team__link span {
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.team__link:hover span {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+@media (700px < width <= 1024px) {
+  .team__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 700px) {
+  .team__list {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

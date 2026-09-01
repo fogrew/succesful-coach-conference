@@ -2,103 +2,385 @@
   "page": "index",
   "index": {
     "speakers": {
-      "anastasia-degterevskaya": {
-        "name": "Анастасия Дегтеревская",
-        "photo": "/src/assets/images/speakers/photo_2025-08-06_22-20-04.jpg",
-        "description": "Продюсер для женщин-экспертов, маркетолог, владелец онлайн-школы с 5000+ выпускников. В онлайне с 2018, помогает экспертам превращать знания в стабильный поток клиентов."
-      },
-      "artem-lyssov": {
-        "name": "Артем Лысов",
-        "photo": "/src/assets/images/speakers/photo_2025-08-06_21-40-56.jpg",
-        "description": "Авитолог. Эксперт по продвижению услуг через Авито, делится практическими инструментами для поиска новых учеников и клиентов."
-      },
-      "yulia-kravchenko": {
-        "name": "Юлия Кравченко",
-        "photo": "/src/assets/images/speakers/photo_2025-08-06_22-17-12.jpg",
-        "description": "Репетитор по математике, специалист по подготовке к ОГЭ и ЕГЭ. Работает с учениками из США, Южной Кореи, Беларуси и Казахстана. Ставка 3500/6000₽."
-      },
-      "ekaterina-chelina": {
-        "name": "Екатерина Челина",
-        "photo": "/src/assets/images/speakers/photo_2025-08-06_21-40-59.jpg",
-        "description": "Репетитор по математике с 16-летним опытом, 5 лет в онлайн-образовании. Основатель сообщества «Успешный репетитор»."
-      },
-      "svetlana-lyalina": {
-        "name": "Светлана Лялина",
-        "photo": "/src/assets/images/speakers/image_2025-08-06_23-10-10.png",
-        "description": "Практикующий бухгалтер. Работает с предпринимателями в Ярославле и удаленно по России. Оказывает услуги по бухгалтерскому сопровождению и консультированию."
-      },
-      "aigul-saidova": {
-        "name": "Айгюль Саидова",
-        "photo": "/src/assets/images/speakers/image_2025-08-07_22-54-44.png",
-        "description": "Маркетолог. Эксперт по ВК. Основатель агентства контентного маркетинга Есть контакт. Помогает репетиторам находить учеников через соцсети."
+      "daria-abdrakhmanova": {
+        "name": "Дарья Абдрахманова",
+        "photo": "/src/assets/images/speakers/daria-abdrakhmanova.jpg",
+        "role": "Эксперт по внедрению ИИ в работу репетитора",
+        "mkTitle": "«Репетитор + ИИ: минус часы подготовки, плюс время на жизнь»",
+        "mkDescription": "За 40 минут — максимум практики: реальные задачи репетитора, готовые сценарии и инструменты, которые можно применить сразу после конференции. Независимо от предмета — английский, математика, физика, русский или история. Цель не «научиться пользоваться нейросетями», а работать меньше и успевать больше.",
+        "mkOutcome": "Готовые сценарии и инструменты, которые вернут вам часы свободного времени"
       },
       "ekaterina-polyakina": {
         "name": "Екатерина Полякина",
-        "photo": "/src/assets/images/speakers/image_2025-08-06_23-05-41.png",
-        "description": "Психолог с 9-летней практикой, более 1000 консультаций. Автор набора проективных фигур и член Российской Психотерапевтической Ассоциации. Штатный психолог медцентра «Доктор»"
+        "photo": "/src/assets/images/speakers/ekaterina-polyakina.jpg",
+        "role": "Психолог с 9-летней практикой, более 1000 консультаций",
+        "mkTitle": "«Ценообразование без стресса»",
+        "mkDescription": "Считаем финансы репетитора через призму математики и психологии. Составим смету с учётом налогов, амортизации техники, аренды кабинета и отпуска — и разберём, не занижена ли ваша ставка из-за страха, стыда или синдрома самозванца.",
+        "mkOutcome": "Реальная ставка, ниже которой работать невыгодно, и практика отделять свою ценность от внутреннего критика"
+      },
+      "anna-moiseeva": {
+        "name": "Анна Моисеева",
+        "photo": "/src/assets/images/speakers/anna-moiseeva.jpg",
+        "role": "Эксперт по продвижению репетиторов",
+        "mkTitle": "«В чём ваша уникальность?»",
+        "mkDescription": "Находим ваше УТП и собираем цепляющую анкету или объявление — для Профи, Авито и соцсетей. Разберём, что цепляет клиента и какие правила работают на любом агрегаторе.",
+        "mkOutcome": "Готовый шаблон анкеты и сформулированные «фишки» и сильные стороны"
+      },
+      "natalia-streshkina": {
+        "name": "Наталья Стрешкина",
+        "photo": "/src/assets/images/speakers/natalia-streshkina.jpg",
+        "role": "Юрист в сфере частного образования, руководитель компании «Райдо Лигал», в детской сфере с 2014 года",
+        "mkTitle": "«Суд над идеальным репетитором»",
+        "mkDescription": "Юридический квест: пройдём путь репетитора по секторам «Кто я с точки зрения закона?», «Где мои деньги?», «Договорный сейф», «Реклама и переписка» — и завершим интерактивной игрой-судом. Не про страх перед законами, а про спокойную юридическую грамотность.",
+        "mkOutcome": "Понимание своих прав и чёткий план действий в спорной ситуации с клиентом"
+      },
+      "ekaterina-chelina": {
+        "name": "Екатерина Челина",
+        "photo": "",
+        "description": "Репетитор по математике с 17-летним опытом, 6 лет в онлайн-образовании. Основатель сообщества «Успешный репетитор»."
       }
     },
-    "schedule": [
+    "team": [
       {
-        "time": "10:00-10:45",
-        "event": "Регистрация участников",
-        "speaker": null
+        "name": "Екатерина Челина",
+        "photo": "/src/assets/images/team/ekaterina-chelina.jpg",
+        "role": "Организатор конференции, репетитор по математике для подростков, основатель сообщества «Успешный репетитор»",
+        "link": "https://vk.ru/fanatiki_matematiki"
       },
       {
-        "time": "10:45-11:00",
-        "event": "Приветственное слово организатора",
-        "speaker": null
+        "name": "Дарья Абдрахманова",
+        "photo": "/src/assets/images/team/daria-abdrakhmanova.jpg",
+        "role": "Преподаватель английского для детей и взрослых, медицинский английский для врачей, подготовка к ЕГЭ/ОГЭ",
+        "link": "https://vk.ru/id51506117"
       },
       {
-        "time": "11:00-11:30",
-        "event": "Телеграм вместо Профи.ру: пошаговый план создания канала, где клиенты готовы платить выше рынка",
-        "speaker": "anastasia-degterevskaya"
+        "name": "Екатерина Селиванова",
+        "photo": "/src/assets/images/team/ekaterina-selivanova.jpg",
+        "role": "Преподаватель английского и турагент, руководитель студии английского Astra English и офиса туроператора Travelata в г. Ярославль",
+        "link": "https://vk.ru/katerinasea"
       },
       {
-        "time": "11:30-12:00",
-        "event": "Как репетитору заполнить расписание только при помощи Авито?",
-        "speaker": "artem-lyssov"
+        "name": "Екатерина Худякова",
+        "photo": "/src/assets/images/team/ekaterina-hudyakova.jpg",
+        "role": "Репетитор по математике, 8–11 классы, подготовка к ОГЭ/ЕГЭ",
+        "link": "https://vk.ru/id855611839"
       },
       {
-        "time": "12:00-12:30",
-        "event": "Тренды ВК 2025-2026",
-        "speaker": "aigul-saidova"
+        "name": "Надежда Фролова",
+        "photo": "/src/assets/images/team/nadezhda-frolova.jpg",
+        "role": "Репетитор по математике с 1 по 11 класс, ВПР/МЦКО/ОГЭ/ЕГЭ; психолог (телесно-ориентированная психология)",
+        "link": "https://vk.ru/id121910095"
       },
       {
-        "time": "12:30-13:00",
-        "event": "Кофе-брейк",
-        "speaker": null
-      },
-      {
-        "time": "13:00-13:30",
-        "event": "Бухгалтерия для репетитора: от самозанятости до УСН - выбираем, что выгодно!",
-        "speaker": "svetlana-lyalina"
-      },
-      {
-        "time": "13:30-14:30",
-        "event": "Психологический тренинг, нетворкинг<br>«Как перестать играть в прятки с клиентом и найти друг друга»",
-        "speaker": "ekaterina-polyakina"
-      },
-      {
-        "time": "14:30-16:00",
-        "event": "Обед, фотосессия",
-        "speaker": null
-      },
-      {
-        "time": "16:00-16:30",
-        "event": "Личный бренд. Нужен ли он?",
-        "speaker": "ekaterina-chelina"
-      },
-      {
-        "time": "16:30-17:00",
-        "event": "Как эффективно работать с группами?",
-        "speaker": "yulia-kravchenko"
-      },
-      {
-        "time": "17:00-17:30",
-        "event": "Завершение конференции",
-        "speaker": null
+        "name": "Евгения Соколова",
+        "photo": "/src/assets/images/team/evgenia-sokolova.jpg",
+        "role": "Помощник репетиторов, технический специалист",
+        "link": "https://vk.ru/evgisokolova"
       }
-    ]
+    ],
+    "lastYearPhotos": [
+      {
+        "image": "/src/assets/images/2025/photos/photo-2.jpg",
+        "alt": "Фото с конференции 2025 — 2"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-9.jpg",
+        "alt": "Фото с конференции 2025 — 9"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-3.jpg",
+        "alt": "Фото с конференции 2025 — 3"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-4.jpg",
+        "alt": "Фото с конференции 2025 — 4"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-5.jpg",
+        "alt": "Фото с конференции 2025 — 5"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-6.jpg",
+        "alt": "Фото с конференции 2025 — 6"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-7.jpg",
+        "alt": "Фото с конференции 2025 — 7"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-8.jpg",
+        "alt": "Фото с конференции 2025 — 8"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-10.jpg",
+        "alt": "Фото с конференции 2025 — 10"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-11.jpg",
+        "alt": "Фото с конференции 2025 — 11"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-12.jpg",
+        "alt": "Фото с конференции 2025 — 12"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-13.jpg",
+        "alt": "Фото с конференции 2025 — 13"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-14.jpg",
+        "alt": "Фото с конференции 2025 — 14"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-15.jpg",
+        "alt": "Фото с конференции 2025 — 15"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-16.jpg",
+        "alt": "Фото с конференции 2025 — 16"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-17.jpg",
+        "alt": "Фото с конференции 2025 — 17"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-18.jpg",
+        "alt": "Фото с конференции 2025 — 18"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-19.jpg",
+        "alt": "Фото с конференции 2025 — 19"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-20.jpg",
+        "alt": "Фото с конференции 2025 — 20"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-21.jpg",
+        "alt": "Фото с конференции 2025 — 21"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-22.jpg",
+        "alt": "Фото с конференции 2025 — 22"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-23.jpg",
+        "alt": "Фото с конференции 2025 — 23"
+      },
+      {
+        "image": "/src/assets/images/2025/photos/photo-1.jpg",
+        "alt": "Фото с конференции 2025 — 1"
+      }
+    ],
+    "reviews": [
+      {
+        "image": "/src/assets/images/reviews/review-1.png",
+        "alt": "Отзыв Анны К. о конференции",
+        "vkLink": ""
+      },
+      {
+        "image": "/src/assets/images/reviews/review-3.png",
+        "alt": "Отзыв Марии С. о конференции",
+        "vkLink": ""
+      },
+      {
+        "image": "/src/assets/images/reviews/review-4.png",
+        "alt": "Отзыв Ольги В. о конференции",
+        "vkLink": ""
+      },
+      {
+        "image": "/src/assets/images/reviews/review-5.png",
+        "alt": "Отзыв Дмитрия Р. о конференции",
+        "vkLink": ""
+      },
+      {
+        "image": "/src/assets/images/reviews/review-6.png",
+        "alt": "Отзыв Светланы Т. о конференции",
+        "vkLink": ""
+      },
+      {
+        "image": "/src/assets/images/reviews/review-7.png",
+        "alt": "Отзыв Ивана П. о конференции",
+        "vkLink": ""
+      },
+      {
+        "image": "/src/assets/images/reviews/review-2.png",
+        "alt": "Отзыв Ивана П. о конференции",
+        "vkLink": ""
+      },
+      {
+        "image": "/src/assets/images/reviews/review-8.png",
+        "alt": "Отзыв Марии С. о конференции",
+        "vkLink": ""
+      },
+      {
+        "image": "/src/assets/images/reviews/review-9.jpg",
+        "alt": "Отзыв Василины Нефедовой о конференции",
+        "vkLink": "https://vk.ru/wall21835433_2716"
+      },
+      {
+        "image": "/src/assets/images/reviews/review-10.jpg",
+        "alt": "Отзыв Екатерины Куклевой о конференции",
+        "vkLink": "https://vk.ru/wall16741838_12401"
+      },
+      {
+        "image": "/src/assets/images/reviews/review-11.jpg",
+        "alt": "Отзыв Карины Шумилиной о конференции",
+        "vkLink": "https://vk.ru/wall336895492_4464"
+      },
+      {
+        "image": "/src/assets/images/reviews/review-12.jpg",
+        "alt": "Отзыв Ирины Земсковой о конференции",
+        "vkLink": "https://vk.ru/wall-227827249_47"
+      },
+      {
+        "image": "/src/assets/images/reviews/review-13.jpg",
+        "alt": "Отзыв участницы конференции",
+        "vkLink": "https://vk.ru/wall359879714_7"
+      },
+      {
+        "image": "/src/assets/images/reviews/review-14.jpg",
+        "alt": "Отзыв Ирины Семеновой о конференции",
+        "vkLink": "https://vk.ru/wall475052941_1423"
+      },
+      {
+        "image": "/src/assets/images/reviews/review-15.jpg",
+        "alt": "Отзыв Марины С. о конференции",
+        "vkLink": "https://vk.ru/wall176951572_1108"
+      }
+    ],
+    "activities": [
+      {
+        "title": "Тело — ваш главный инструмент",
+        "desc": ": дыхательные практики, метафорические карты, гвоздестояние"
+      },
+      {
+        "title": "Цифровая психология",
+        "desc": ": Как по дате рождения найти подход к ученику — и к себе."
+      },
+      {
+        "title": "Куда уходят деньги репетитора?",
+        "desc": ": Вам поступило 100 000 ₽. Сколько из них действительно ваши? Распределите деньги и проверьте, выдержит ли ваша финансовая система один неожиданный месяц."
+      }
+    ],
+    "scheduleDays": {
+      "excursion": {
+        "date": "3 октября",
+        "title": "Экскурсия в Рыбинск",
+        "intro": "Обзорная экскурсия по Рыбинску о коде города, который веками строился на воде, хлебе и металле.",
+        "departure": "9:00 — выезд (пл. Речного вокзала, Волжская наб., 2)",
+        "returnTime": "~19:00 — возвращение в Ярославль",
+        "route": [
+          "Обзорная экскурсия по городу",
+          "Маслобойня",
+          "Свободное время на Стрелке (2–3 часа)",
+          "Пивоварня «Богемия» — цех, музей, дегустация"
+        ],
+        "included": [
+          "Комфортабельный автобус",
+          "Гид-сопровождающий",
+          "Экскурсионная программа",
+          "Дегустация"
+        ],
+        "contactName": "Екатерины Челиной",
+        "contactLink": "https://vk.ru/fanatiki_matematiki",
+        "guideName": "Екатериной Селивановой",
+        "guideLink": "https://vk.ru/katerinasea",
+        "detailsLink": "https://vk.ru/wall-213646353_8033"
+      },
+      "conference": {
+        "date": "4 октября",
+        "title": "Конференция"
+      }
+    },
+    "schedule": {
+      "before": [
+        {
+          "time": { "start": "10:00", "end": "10:45" },
+          "event": "Регистрация участников, активности",
+          "icon": "📝",
+          "speaker": null
+        },
+        {
+          "time": { "start": "10:45", "end": "11:00" },
+          "event": "Приветствие и распределение по группам",
+          "icon": "👋",
+          "speaker": null
+        }
+      ],
+      "masterclasses": {
+        "title": "Мастер-классы",
+        "meta": "Ротация группами — по часу на мастер-класс, перерываясь на кофе и переходы между МК.",
+        "items": [
+          {
+            "time": { "start": "11:00", "end": "11:45" },
+            "event": "Мастер-класс 1",
+            "icon": "🎓",
+            "speaker": null
+          },
+          {
+            "time": { "start": "11:45", "end": "12:00" },
+            "event": "Переход по станциям",
+            "icon": "🔄",
+            "speaker": null,
+            "muted": true
+          },
+          {
+            "time": { "start": "12:00", "end": "12:45" },
+            "event": "Мастер-класс 2",
+            "icon": "🎓",
+            "speaker": null
+          },
+          {
+            "time": { "start": "12:45", "end": "13:15" },
+            "event": "Кофе-брейк",
+            "icon": "☕",
+            "speaker": null,
+            "muted": true
+          },
+          {
+            "time": { "start": "13:15", "end": "14:00" },
+            "event": "Мастер-класс 3",
+            "icon": "🎓",
+            "speaker": null
+          },
+          {
+            "time": { "start": "14:00", "end": "14:15" },
+            "event": "Переход по станциям",
+            "icon": "🔄",
+            "speaker": null,
+            "muted": true
+          },
+          {
+            "time": { "start": "14:15", "end": "15:00" },
+            "event": "Мастер-класс 4",
+            "icon": "🎓",
+            "speaker": null
+          }
+        ]
+      },
+      "after": [
+        {
+          "time": { "start": "15:00", "end": "16:30" },
+          "event": "Обед",
+          "icon": "🍽️",
+          "speaker": null,
+          "muted": true
+        },
+        {
+          "time": { "start": "16:30", "end": "17:30" },
+          "event": "Педагогический квиз",
+          "hint": "Командная игра-разминка: музыкальные и визуальные загадки, логика и реакция",
+          "icon": "🧠",
+          "speaker": null
+        },
+        {
+          "time": { "start": "17:30", "end": "18:00" },
+          "event": "Завершение конференции",
+          "icon": "🏁",
+          "speaker": null
+        }
+      ]
+    }
   }
 }

@@ -1,0 +1,42 @@
+<section class='team section' id='team'>
+  <div class='container'>
+    <h2 class='team__title heading-2'>Наша команда</h2>
+    <div class='team__list'>
+      {% for member in index.team %}
+        <div class='team__item'>
+          {% if member.photo %}
+            <div class='team__avatar-slot' data-gallery>
+              <button type='button' class='team__avatar' data-gallery-open data-alt='{{ member.name }}'>
+                <img src='{{ member.photo }}' alt='{{ member.name }}' class='team__img'>
+              </button>
+              <dialog class='gallery__dialog' data-gallery-dialog aria-label='Фото: {{ member.name }}'>
+                <button type='button' class='gallery__dialog-close' data-gallery-close aria-label='Закрыть' hidden>&times;</button>
+                <img class='gallery__dialog-img' data-gallery-dialog-img alt=''>
+                <div class='gallery__dialog-loader' data-gallery-loader hidden aria-hidden='true'>
+                  <span class='gallery__dialog-spinner'></span>
+                </div>
+              </dialog>
+            </div>
+          {% else %}
+            <div class='team__avatar team__avatar--placeholder'>?</div>
+          {% endif %}
+          <div class='team__info'>
+            <h3 class='team__name'>{{ member.name }}</h3>
+            {% if member.role %}
+              <p class='team__role'>{{ member.role }}</p>
+            {% endif %}
+            {% if member.link %}
+              <a class='team__link' href='{{ member.link }}' target='_blank' rel='noopener noreferrer'>
+                <svg class='team__link-icon' viewBox='0 0 24 24' width='16' height='16' aria-hidden='true'>
+                  <rect width='24' height='24' rx='6' fill='#0077ff'/>
+                  <text x='12' y='16' text-anchor='middle' font-family='Arial, sans-serif' font-size='10' font-weight='700' fill='#ffffff'>VK</text>
+                </svg>
+                <span>Профиль ВКонтакте</span>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

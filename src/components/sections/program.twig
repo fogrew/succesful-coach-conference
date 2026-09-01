@@ -1,0 +1,201 @@
+<section class='program section' id='program'>
+  <div class='container'>
+    <h2 class='heading-2'>Программа</h2>
+    <p class='about__desc'>
+      Быть репетитором сегодня — значит быть универсалом. Недостаточно просто знать свой предмет, нужно уметь управлять временем, защищать свои права и выделяться на фоне сотен коллег.
+    </p>
+    <p class='about__desc'>
+      Мы собрали 4 ключевых навыка успешного специалиста: от внедрения нейросетей до юридической безопасности. Вас ждут не скучные лекции, а живые мастер-классы, заряжающие активности для тела и ума, а также педагогический квиз.
+    </p>
+    <p class='about__desc'>Приходите, чтобы прокачать все грани своей профессии!
+    </p>
+  </div>
+
+  <div class='program__container'>
+    <h3 class='heading-3'>Расписание</h3>
+    <div class='program__days-grid'>
+      <div class='program__day-card'>
+        <h4 class='program__day-title'>{{ index.scheduleDays.excursion.date }}</h4>
+        <p class='program__day-subtitle'>{{ index.scheduleDays.excursion.title }}</p>
+        <p class='program__intro'>{{ index.scheduleDays.excursion.intro }}</p>
+        <ul class='program__route-list'>
+          <li>{{ index.scheduleDays.excursion.departure }}</li>
+          {% for stop in index.scheduleDays.excursion.route %}
+            <li>{{ stop }}</li>
+          {% endfor %}
+          <li>{{ index.scheduleDays.excursion.returnTime }}</li>
+        </ul>
+        <p class='program__price-label'>Включено:</p>
+        <ul class='program__price-list'>
+          {% for item in index.scheduleDays.excursion.included %}
+            <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+        <div class='program__footer'>
+          <p class='program__contact'>
+            Запись и подробности — у
+            <a href='{{ index.scheduleDays.excursion.contactLink }}' target='_blank' rel='noopener noreferrer'>{{ index.scheduleDays.excursion.contactName }}</a>.
+            <br>
+            Едем с туроператором
+            <a href='{{ index.scheduleDays.excursion.guideLink }}' target='_blank' rel='noopener noreferrer'>{{ index.scheduleDays.excursion.guideName }}</a>.
+          </p>
+          <p class='program__contact'>
+            <a href='{{ index.scheduleDays.excursion.detailsLink }}' target='_blank' rel='noopener noreferrer'>Подробнее во ВКонтакте →</a>
+          </p>
+        </div>
+      </div>
+
+      <div class='program__day-card'>
+        <h4 class='program__day-title'>{{ index.scheduleDays.conference.date }}</h4>
+        <p class='program__day-subtitle'>{{ index.scheduleDays.conference.title }}</p>
+
+        <ul class='program__day-list'>
+          {% for item in index.schedule.before %}
+            {% set isAbleAsSpeaker = item.speaker and index.speakers[item.speaker] %}
+            <li class='{{ item.muted ? "program__day-list-item--muted" : "" }}'>
+              <span class='program__time'><time datetime='{{ item.time.start }}'>{{ item.time.start }}</time>–<time datetime='{{ item.time.end }}'>{{ item.time.end }}</time></span>
+              <span class='program__slot'>
+                {% if isAbleAsSpeaker and index.speakers[item.speaker].photo %}
+                  <img
+                    src='{{ index.speakers[item.speaker].photo }}'
+                    alt='{{ index.speakers[item.speaker].name }}'
+                    class='program__avatar'
+                  >
+                {% elseif item.icon %}
+                  <span class='program__icon' aria-hidden='true'>{{ item.icon }}</span>
+                {% endif %}
+                <span class='program__slot-content'>
+                  {% if isAbleAsSpeaker %}
+                    <span class='program__speaker'>{{ index.speakers[item.speaker].name }}</span>
+                  {% endif %}
+                  <span class='program__desc'>{{ item.event }}</span>
+                  {% if item.hint %}
+                    <span class='program__hint'>{{ item.hint }}</span>
+                  {% endif %}
+                </span>
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <div class='program__group'>
+          <div class='program__group-header'>
+            <span class='program__time' aria-hidden='true'></span>
+            <span class='program__slot'>
+              <span class='program__slot-content'>
+                <span class='program__group-title'>{{ index.schedule.masterclasses.title }}</span>
+                <span class='program__group-meta'>{{ index.schedule.masterclasses.meta }}</span>
+              </span>
+            </span>
+          </div>
+          <ul class='program__day-list'>
+            {% for item in index.schedule.masterclasses.items %}
+              {% set isAbleAsSpeaker = item.speaker and index.speakers[item.speaker] %}
+              <li class='{{ item.muted ? "program__day-list-item--muted" : "" }}'>
+                <span class='program__time'><time datetime='{{ item.time.start }}'>{{ item.time.start }}</time>–<time datetime='{{ item.time.end }}'>{{ item.time.end }}</time></span>
+                <span class='program__slot'>
+                  {% if isAbleAsSpeaker and index.speakers[item.speaker].photo %}
+                    <img
+                      src='{{ index.speakers[item.speaker].photo }}'
+                      alt='{{ index.speakers[item.speaker].name }}'
+                      class='program__avatar'
+                    >
+                  {% elseif item.icon %}
+                    <span class='program__icon' aria-hidden='true'>{{ item.icon }}</span>
+                  {% endif %}
+                  <span class='program__slot-content'>
+                    {% if isAbleAsSpeaker %}
+                      <span class='program__speaker'>{{ index.speakers[item.speaker].name }}</span>
+                    {% endif %}
+                    <span class='program__desc'>{{ item.event }}</span>
+                    {% if item.hint %}
+                      <span class='program__hint'>{{ item.hint }}</span>
+                    {% endif %}
+                  </span>
+                </span>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <ul class='program__day-list'>
+          {% for item in index.schedule.after %}
+            {% set isAbleAsSpeaker = item.speaker and index.speakers[item.speaker] %}
+            <li class='{{ item.muted ? "program__day-list-item--muted" : "" }}'>
+              <span class='program__time'><time datetime='{{ item.time.start }}'>{{ item.time.start }}</time>–<time datetime='{{ item.time.end }}'>{{ item.time.end }}</time></span>
+              <span class='program__slot'>
+                {% if isAbleAsSpeaker and index.speakers[item.speaker].photo %}
+                  <img
+                    src='{{ index.speakers[item.speaker].photo }}'
+                    alt='{{ index.speakers[item.speaker].name }}'
+                    class='program__avatar'
+                  >
+                {% elseif item.icon %}
+                  <span class='program__icon' aria-hidden='true'>{{ item.icon }}</span>
+                {% endif %}
+                <span class='program__slot-content'>
+                  {% if isAbleAsSpeaker %}
+                    <span class='program__speaker'>{{ index.speakers[item.speaker].name }}</span>
+                  {% endif %}
+                  <span class='program__desc'>{{ item.event }}</span>
+                  {% if item.hint %}
+                    <span class='program__hint'>{{ item.hint }}</span>
+                  {% endif %}
+                </span>
+              </span>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class='container'>
+    <div class='activities'>
+      <h4 class='activities__title'>Активности</h4>
+      <p class='activities__hint'>с 10:00 до 10:45 работают три мини-формата:</p>
+      <ul class='activities__list'>
+        {% for activity in index.activities %}
+          <li class='activities__item'><span class='activities__item-title'>{{ activity.title }}</span><span class='activities__item-desc'>{{ activity.desc }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class='speakers__container container'>
+    <h3 class='heading-3'>Мастер-классы</h3>
+    <div class='speakers__list'>
+      {% for key, speaker in index.speakers %}
+        {% if key != 'ekaterina-chelina' %}
+          <div class='speakers__item'>
+            {% if speaker.photo %}
+              <div class='speakers__avatar-slot' data-gallery>
+                <button type='button' class='speakers__avatar' data-gallery-open data-alt='{{ speaker.name }}'>
+                  <img
+                    src='{{ speaker.photo }}'
+                    alt='{{ speaker.name }}'
+                    class='speakers__img'
+                  >
+                </button>
+                <dialog class='gallery__dialog' data-gallery-dialog aria-label='Фото: {{ speaker.name }}'>
+                  <button type='button' class='gallery__dialog-close' data-gallery-close aria-label='Закрыть' hidden>&times;</button>
+                  <img class='gallery__dialog-img' data-gallery-dialog-img alt=''>
+                  <div class='gallery__dialog-loader' data-gallery-loader hidden aria-hidden='true'>
+                    <span class='gallery__dialog-spinner'></span>
+                  </div>
+                </dialog>
+              </div>
+            {% endif %}
+            <div class='speakers__info'>
+              <h4 class='speakers__name'>{{ speaker.name }}</h4>
+              <p class='speakers__role'>{{ speaker.role }}</p>
+              <p class='speakers__mk-title'>{{ speaker.mkTitle }}</p>
+              <p class='speakers__desc'>{{ speaker.mkDescription }}</p>
+              <p class='speakers__outcome'>{{ speaker.mkOutcome }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

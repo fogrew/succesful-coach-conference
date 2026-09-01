@@ -3,16 +3,16 @@
     "siteTitle": "Starter",
     "nav": [
       {
-        "text": "О конференции",
-        "link": "#about"
-      },
-      {
-        "text": "Спикеры",
-        "link": "#speakers"
-      },
-      {
         "text": "Программа",
         "link": "#program"
+      },
+      {
+        "text": "Как это было",
+        "link": "#last-year"
+      },
+      {
+        "text": "Наша команда",
+        "link": "#team"
       },
       {
         "text": "Билеты",
