@@ -5,3 +5,7 @@ dist
 .claude/
 .codegraph/
 .rtk/
+
+# Unused raw source footage, not referenced anywhere on the site - way
+# over GitHub's 100MB file size limit anyway.
+src/assets/images/2025/video.mp4
