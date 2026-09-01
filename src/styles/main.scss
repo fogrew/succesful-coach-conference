@@ -21,6 +21,17 @@ img {
   text-align: center;
 }
 
+/* Transparent wrapper the avif/webp build step adds around a plain <img> it
+   didn't already have a <picture> to work with (see
+   vite-plugins/avif-webp.js) - <source> elements render nothing and the
+   <img> layout participates in its parent's flow exactly as if this wrapper
+   weren't there. Scoped to that one generated class only: a hand-authored
+   <picture> like .speakers__avatar is deliberately its own styled box and
+   must keep generating one. */
+.picture-reset {
+  display: contents;
+}
+
 a {
   color: var(--color-accent);
 }
