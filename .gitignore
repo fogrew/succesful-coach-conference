@@ -1,2 +1,7 @@
 node_modules
 dist
+
+# Local dev-tooling state - not part of the site
+.claude/
+.codegraph/
+.rtk/
