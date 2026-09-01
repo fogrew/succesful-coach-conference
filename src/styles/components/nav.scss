@@ -4,31 +4,23 @@
   display: flex;
 }
 
+.nav__item {
+  display: flex;
+}
+
 .nav__link {
   padding: 12px 20px;
   text-decoration: none;
   color: var(--color-dark);
   transition: color 0.3s;
+  border-radius: 5px;
 
   &:hover {
-    color: var(--color-accent);
-    text-shadow: 0 1px 1px var(--color-accent);
+    color: var(--color-accent-dark);
     background: radial-gradient(
       ellipse,
-      rgb(255 145 76 / 0.2) 0%,
-      rgb(255 145 76 / 0.05) 100%
+      rgb(44 62 80 / 0.1) 0%,
+      rgb(44 62 80 / 0.03) 100%
     );
-  }
-}
-
-@media (width <= 600px) {
-  .nav__list {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav__link {
-    padding: 10px 15px;
-    text-align: center;
   }
 }

@@ -1,5 +1,5 @@
-{% macro nav(list, class) %}
-<nav class='{{ ["nav", class] | join(' ') }}'>
+{% macro nav(list, class, id) %}
+<nav class='{{ ["nav", class] | join(' ') }}' {% if id %}id='{{ id }}'{% endif %}>
   <ul class='nav__list'>
     {% for item in list %}
       <li class='nav__item'>

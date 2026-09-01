@@ -6,8 +6,17 @@
   --color-bg-secondary: #c3bfbc;
   --color-accent: #ff914c;
   --color-accent-secondary: #f98a77;
+  /* Same hue as --color-accent, darkened for ~7.5:1 contrast on
+     --color-bg-main - the accent itself is only ~1.9:1 there, well under
+     the 4.5:1 WCAG AA minimum for normal text. */
+  --color-accent-dark: #803100;
   --color-dark: #2c3e50;
   scroll-behavior: smooth;
+  /* Reserve the vertical scrollbar's gutter even when the page is short
+     enough not to need one - otherwise content width shifts by the
+     scrollbar's width every time it appears or disappears (e.g. navigating
+     to a shorter/taller page, or content loading in). */
+  scrollbar-gutter: stable;
 }
 
 * {

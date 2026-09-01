@@ -10,6 +10,7 @@
   display: flex;
   align-items: center;
   height: 100%;
+  position: relative;
 }
 
 .header__logo {
@@ -18,6 +19,10 @@
   font-weight: 700;
   color: var(--color-dark);
   text-decoration: none;
+  /* Same reasoning as .header__burger: stays above the drawer/scrim (both
+     position: fixed) so it's still visible while the drawer is open. */
+  position: relative;
+  z-index: 3;
 }
 
 .header__actions {
@@ -25,8 +30,95 @@
   padding: 10px 0;
 }
 
-@media (width <= 450px) {
+.header__burger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  margin-inline-end: 8px;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  /* Stays above the drawer/scrim (both position: fixed) so it's always
+     clickable to close, even though it's painted after them in the DOM. */
+  position: relative;
+  z-index: 3;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-dark);
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  &.is-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  &.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  &.is-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+/* Below this, the inline nav becomes an off-canvas drawer that slides in
+   from the left edge over a dimmed scrim, instead of a plain dropdown. */
+@media (width <= 700px) {
+  .header__burger {
+    display: flex;
+  }
+
   .header__nav {
-    display: none;
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 2;
+    width: min(80vw, 320px);
+    overflow-y: auto;
+    background: var(--color-bg-main);
+    box-shadow: 4px 0 24px rgb(0 0 0 / 0.15);
+    padding: 80px 0 24px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+    &.is-open {
+      transform: translateX(0);
+    }
+
+    .nav__list {
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav__link {
+      display: block;
+      padding: 14px 24px;
+      text-align: left;
+    }
+  }
+
+  .header__scrim {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: rgb(0 0 0 / 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+
+    &.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 }

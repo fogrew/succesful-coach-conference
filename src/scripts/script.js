@@ -612,3 +612,101 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+// Mobile header nav: hidden behind a burger toggle below the 700px
+// breakpoint (see header.scss) instead of just disappearing with no way to
+// reach it.
+document.addEventListener('DOMContentLoaded', function () {
+  const burger = document.querySelector('[data-header-burger]');
+  const nav = document.getElementById('header-nav');
+  const scrim = document.querySelector('[data-header-scrim]');
+
+  if (!burger || !nav) {
+    return;
+  }
+
+  function isOpen() {
+    return burger.classList.contains('is-open');
+  }
+
+  // Locking scroll via overflow: hidden on body/html - even compensated with
+  // a matching padding-right - still leaves a visible seam on any section
+  // whose background runs edge-to-edge (the hero's photo, in particular):
+  // the compensating padding sits on body, so it shows body's own
+  // background, not the section's. Blocking the scroll-causing events
+  // instead means the page's box model never changes at all while the
+  // drawer is open, so there's nothing to compensate for and no seam.
+  function preventBackgroundScroll(event) {
+    if (nav.contains(event.target)) {
+      return;
+    }
+
+    event.preventDefault();
+  }
+
+  function closeMenu(options) {
+    if (!isOpen()) {
+      return;
+    }
+
+    burger.classList.remove('is-open');
+    nav.classList.remove('is-open');
+    scrim?.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.removeEventListener('wheel', preventBackgroundScroll);
+    document.removeEventListener('touchmove', preventBackgroundScroll);
+
+    if (options && options.returnFocus) {
+      burger.focus();
+    }
+  }
+
+  function openMenu() {
+    burger.classList.add('is-open');
+    nav.classList.add('is-open');
+    scrim?.classList.add('is-open');
+    burger.setAttribute('aria-expanded', 'true');
+    // Lock the page behind the drawer instead of letting it scroll under it.
+    document.addEventListener('wheel', preventBackgroundScroll, {
+      passive: false,
+    });
+    document.addEventListener('touchmove', preventBackgroundScroll, {
+      passive: false,
+    });
+    // Hand focus into the drawer, matching the off-canvas pattern.
+    nav.querySelector('a')?.focus();
+  }
+
+  burger.addEventListener('click', () => {
+    if (isOpen()) {
+      closeMenu({ returnFocus: true });
+    } else {
+      openMenu();
+    }
+  });
+
+  scrim?.addEventListener('click', () => closeMenu({ returnFocus: true }));
+
+  // Picking a section link should close the menu, not leave it open over
+  // the content it just scrolled to (focus naturally follows the link, so
+  // it isn't returned to the burger here).
+  nav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => closeMenu());
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMenu({ returnFocus: true });
+    }
+  });
+
+  // Resizing (or rotating) past the mobile breakpoint shouldn't leave the
+  // drawer stuck open (and the page scroll-locked) once it's no longer one.
+  window
+    .matchMedia('(min-width: 701px)')
+    .addEventListener('change', (event) => {
+      if (event.matches) {
+        closeMenu();
+      }
+    });
+});
