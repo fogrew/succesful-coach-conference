@@ -362,7 +362,7 @@
       "after": [
         {
           "time": { "start": "15:00", "end": "16:30" },
-          "event": "Обед",
+          "event": "Обед, фотосессия",
           "icon": "🍽️",
           "speaker": null,
           "muted": true
